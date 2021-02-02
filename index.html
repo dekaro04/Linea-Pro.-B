@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<head>
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<style>
+#map {
+width: 100%;
+height: 600px;
+box-shadow: 5px 5px 5px #888;
+}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
++ 'contributors', maxZoom: 18
+});
+var map = L.map('map', {
+center: [1.6201816037286574, -75.60988426208498],
+zoom: 13,
+layers: osm,
+scrollWheelZoom: true,
+});
+
+var marker = L.marker([ 1.620119, -75.605128],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Universidad de la Amázonia')
+.openPopup();
+
+var marker2 = L.marker([ 1.615107, -75.613809],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Alcaldia de Florencia')
+.openPopup();
+
+var marker3 = L.marker([ 1.614986, -75.613307],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Plaza Santander')
+.openPopup();
+
+var marker4 = L.marker([ 1.6046883476927187, -75.60086813526847],{
+draggable: true,
+title: 'Click Aqui'
+}).addTo(map)
+.bindPopup('Mi Casa')
+.openPopup();
+
+var circle = L.circle([1.615107, -75.613809], 500, { color: 'blue',
+fillColor: '#CCFFF5',
+fillOpacity: 0.5
+}).addTo(map)
+circle.bindPopup("Centro de Florencia");
+
+var polygon = L.polygon([
+[1.6147228020276463, -75.61286687850954],
+[1.6145404842322766, -75.61349987983705],
+[1.615162509584444,  -75.61370372772218],
+[1.6153662764687597, -75.61305999755861]
+]).addTo(map)
+.bindPopup ('Plaza Santander');
+
+var point1 = new L.LatLng(1.604617, -75.600823); 
+var point2 = new L.LatLng(1.604688, -75.600453); 
+var point3 = new L.LatLng(1.605227, -75.600656);
+var point4 = new L.LatLng(1.605511, -75.600637);
+var point5 = new L.LatLng(1.605959, -75.600334);
+var point6 = new L.LatLng(1.606542, -75.600102);
+var point7 = new L.LatLng(1.607172, -75.601555);
+var point8 = new L.LatLng(1.608514, -75.604335);
+var point9 = new L.LatLng(1.608635, -75.604365);
+var point10 = new L.latLng(1.609307, -75.604184);
+var point11= new L.latLng(1.610226, -75.6041101);
+var point12 = new L.latLng(1.610591, -75.6043575);
+var point13= new L.latLng(1.612182, -75.6057516);
+var point14 = new L.latLng(1.613016, -75.6061587);
+var point15 = new L.latLng(1.613652, -75.6058497);
+var point16 = new L.latLng(1.615068, -75.6043702);
+var point17 = new L.latLng(1.615368, -75.6041536);
+var point18 = new L.latLng(1.615600, -75.6042461);
+var point19 = new L.latLng(1.616549, -75.6049584);
+var point20 = new L.latLng(1.618205, -75.6059743);
+var point21 = new L.latLng(1.618850, -75.6064596);
+var point22 = new L.latLng(1.619038, -75.6062452);
+var point23 = new L.latLng(1.619507, -75.6058026);
+var pointFIN = new L.latLng(1.62011, -75.6051669);
+
+
+
+
+
+
+
+var latlngs = [point1, point2, point3, point4, point5, point6, point7, point8, point9, point10, point11, point12, point13, point14, point15, point16, point17,
+point18, point19, point20, point21, point22,point23, pointFIN];
+
+var polyline = L.polyline(
+latlngs, {color: '#FF1A78'}
+)
+.addTo(map)
+.bindPopup ('mi casa - Universidad');
+map.doubleClickZoom.disable()
+
+L.control.scale({
+position: 'bottomright',
+imperial: false
+}).addTo(map);
+</script>
+</body>
+</html>
